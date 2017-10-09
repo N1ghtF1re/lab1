@@ -20,7 +20,7 @@ var xn, xk, dx, e, x, y: real;
 procedure getY(x: real);
 begin
   if((x <= 0) or (pi*pi - x*x + 1/x = 0)) then
-    writeln('При x = ', x:0:4, ' значение функции не определено')
+    writeln('For x = ', x:0:4, ' the value of the function is not defined')
   else
   begin
     y:=pi*pi - x*x + 1/x;
@@ -42,23 +42,22 @@ begin
 end;
 
 begin
-SetConsoleCP(1251);
-SetConsoleOutPutCP(1251); // Включаем поддержку русских символов
+
 
 repeat
-  writeln('Введите начальное значение x');
+  writeln('Enter the initial value of x');
   readln(xn);
-  writeln('Введите конечное значение x');
+  writeln('Enter the final value of x');
   readln(xk);
-  writeln('Введите шаг');
+  writeln('Enter a step');
   readln(dx);
   if ((xn>xk) and (dx >= 0))
      or
      ((xn<xk) and (dx <= 0)) then
   begin
-    writeln; // Создаем отступ
+    writeln; // 
     writeln; //
-    writeln('Введены некорректные данные. Попробуйте еще раз');
+    writeln('Incorrect data entered. Please, try again');
     writeln; //
     writeln; //
   end;
@@ -66,7 +65,7 @@ until ((xn<=xk) and (dx > 0))
       or
       ((xn>=xk) and (dx < 0));
 
-e:=dx/1000;  // Погрешность.
+e:=dx/1000; // Accuracy of machine
 x:=xn;
 while(((x < xk + e) and (dx > 0))
      or
@@ -77,7 +76,7 @@ begin
 end;
 
 
-// Проверка, было ли просчитано значение функции для xk
+// Checking whether the value of the function for xk
 if(((x - dx + e - xk < 0) and (dx > 0))
   or
   ((xk - (x - dx + e) < 0) and (dx < 0))) then
