@@ -9,7 +9,7 @@ Lab №1. Simple cycles
 **Language**: Delphi
 
 **Code:**
-```
+``` pascal
 program lab1;
 {$APPTYPE CONSOLE}
 uses
